@@ -48,10 +48,18 @@ package main
 import "testing"
 
 func TestDoSomething(t *testing.T) {
-	expected := "Task done!"
-	result := DoSomething()
-	if result != expected {
-		t.Errorf("Expected '%s' but got '%s'", expected, result)
+	tests := []struct {
+		input    []int
+		expected bool
+	}{
+		{[]int{-1}, false},
+	}
+
+	for _, test := range tests {
+		result := containsDuplicate(test.input)
+		if result != test.expected {
+			t.Errorf("For input %d, expected %v, but got %v.", test.input, test.expected, result)
+		}
 	}
 }
 EOF
