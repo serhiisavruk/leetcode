@@ -1,14 +1,21 @@
 package main
 
 func containsDuplicate(nums []int) bool {
-	dict := make([]int, 0)
+	hasZero := false
+	m := make(map[int]int)
 	for _, num := range nums {
-		for _, d := range dict {
-			if d == num {
+		if num == 0 {
+			if hasZero {
 				return true
 			}
+			hasZero = true
+			continue
 		}
-		dict = append(dict, num)
+
+		if m[num] == num {
+			return true
+		}
+		m[num] = num
 	}
 	return false
 }
