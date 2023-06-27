@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println(myAtoi("42"))
+	fmt.Println(myAtoi("9223372036854775808"))
 }
